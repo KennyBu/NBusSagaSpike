@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36626F00-E65A-4DF5-81EB-AF617B86A00F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBTY.Core</RootNamespace>
+    <AssemblyName>NBTY.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.2.26\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Containers.Registration\AssemblyDepedencyScanner.cs" />
+    <Compile Include="Containers.Registration\AssemblyDependencyScannerFactory.cs" />
+    <Compile Include="Containers.Registration\AssemblyStore .cs" />
+    <Compile Include="Containers.Registration\ConfigureScanner.cs" />
+    <Compile Include="Containers.Registration\DependencyGraph.cs" />
+    <Compile Include="Containers.Registration\DependencyGraphFactory.cs" />
+    <Compile Include="Containers.Registration\DependencyRegistration.cs" />
+    <Compile Include="Containers.Registration\IRegistrationNodeVisitor.cs" />
+    <Compile Include="Containers.Registration\ITypeRegistrationConvention .cs" />
+    <Compile Include="Containers.Registration\NodeSpecificRegistrationNodeVisitor.cs" />
+    <Compile Include="Containers.Registration\ProcessingSyntaxFactory.cs" />
+    <Compile Include="Containers.Registration\RegistrationAttributes.cs" />
+    <Compile Include="Containers.Registration\RegistrationConventions.cs" />
+    <Compile Include="Containers.Registration\RegistrationNode.cs" />
+    <Compile Include="Containers.Registration\RegistrationProcessingSyntax.cs" />
+    <Compile Include="Containers.Registration\RegistrationStartExpression.cs" />
+    <Compile Include="Containers.Registration\SingletonRegistrationNode.cs" />
+    <Compile Include="Containers.Registration\TransientRegistrationNode.cs" />
+    <Compile Include="Containers.Registration\UsesRegistrationAttributeConvention.cs" />
+    <Compile Include="Containers\Container.cs" />
+    <Compile Include="Containers\ContainerFacadeResolver.cs" />
+    <Compile Include="Containers\IContainerDependencyResolver.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="JsonGateway.cs" />
+    <Compile Include="MappingObjectExtensions.cs" />
+    <Compile Include="CoreGateways.cs" />
+    <Compile Include="PropertyComparer.cs" />
+    <Compile Include="PropertyHelper.cs" />
+    <Compile Include="Reflection\Expressions\ExpressionGateway.cs" />
+    <Compile Include="Reflection\Expressions\MethodFromExpressionMapper.cs" />
+    <Compile Include="Reflection\Expressions\MethodParameterDetail.cs" />
+    <Compile Include="Reflection\Expressions\PropertyFromExpressionMapper.cs" />
+    <Compile Include="Reflection\MethodDetail.cs" />
+    <Compile Include="Reflection\MethodMapper.cs" />
+    <Compile Include="Reflection\NestedPropertyDetail.cs" />
+    <Compile Include="Reflection\PropertyDetail.cs" />
+    <Compile Include="Reflection\PropertyFactory.cs" />
+    <Compile Include="Reflection\PropertyHasAttribute.cs" />
+    <Compile Include="Reflection\PropertyMapper.cs" />
+    <Compile Include="Reflection\PropertyMissingOnTypeException.cs" />
+    <Compile Include="Reflection\ReflectionExtensions.cs" />
+    <Compile Include="Reflection\ReflectionGateway.cs" />
+    <Compile Include="Reflection\TypeExtensions.cs" />
+    <Compile Include="Reflection\TypeGateway.cs" />
+    <Compile Include="Reflection\TypeGatewayFactory.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="IVisitor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyAccessor.cs" />
+    <Compile Include="TypeCastingExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bus\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
