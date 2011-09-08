@@ -1,6 +1,6 @@
 using NServiceBus;
 
-namespace ServerSaga.Messages
+namespace Messages
 {
     public class CreateNewUserRequest : IMessage
     {
