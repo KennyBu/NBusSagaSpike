@@ -1,6 +1,11 @@
-using NBTY.Core.Containers.Ninject.NServiceBus;
-using NBTY.Core.Containers.Ninject.Registration;
+//using NBTY.Core.Containers.Ninject.NServiceBus;
+//using NBTY.Core.Containers.Ninject.Registration;
 using NServiceBus;
+using StructureMap;
+
+//using NServiceBus.ObjectBuilder.Ninject.Config;
+
+//using NServiceBus.ObjectBuilder.Ninject.Config;
 
 namespace ServerSaga
 {
@@ -8,6 +13,15 @@ namespace ServerSaga
     {
         public void Init()
         {
+            ObjectFactory.Initialize(x =>
+            {
+                x.AddRegistry<ServerSagaContainerRegistry>();
+            });
+
+            
+            
+            
+            
             Configure.With()
                 /*
                 .Ninject<FileBasedKernelConfiguration>()
@@ -18,10 +32,16 @@ namespace ServerSaga
                 .ImpersonateSender(false)
                 .LoadMessageHandlers();
                  */
-
-                //.Ninject<FileBasedKernelConfiguration>()
+                
                 .Log4Net()
-                .DefaultBuilder()
+                
+                //.DefaultBuilder()
+                .StructureMapBuilder(ObjectFactory.Container)
+                //.Ninject<FileBasedKernelConfiguration>()
+               //.CastleWindsorBuilder()
+                //.NinjectBuilder()
+                
+                
                 .XmlSerializer()
                 .MsmqTransport()
                 .IsTransactional(false)

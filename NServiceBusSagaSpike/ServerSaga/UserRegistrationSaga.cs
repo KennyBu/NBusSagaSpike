@@ -2,6 +2,8 @@ using System;
 using Messages;
 using NServiceBus;
 using NServiceBus.Saga;
+using ServerSaga.TestEntity;
+using StructureMap.Attributes;
 
 namespace ServerSaga
 {
@@ -9,6 +11,10 @@ namespace ServerSaga
         IAmStartedByMessages<RequestRegistration>,
         IHandleMessages<ConfirmRegistration>
     {
+        [SetterProperty] 
+        public IWarrior Warrior { get; set; }
+
+        
         public override void ConfigureHowToFindSaga()
         {
             ConfigureMapping<RequestRegistration>(saga => saga.Email, message => message.Email);
@@ -26,7 +32,8 @@ namespace ServerSaga
                 Data.Ticket = randomNumber.ToString();
             }
 
-            Data.Email = message.Email;
+            Data.Email = message.Email + " " + Warrior.Name;
+            //Data.Email = message.Email;
             
             Console.WriteLine("New registration request for email {0} - ticket is {1}", Data.Email, Data.Ticket);
         }
