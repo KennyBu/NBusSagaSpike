@@ -103,9 +103,6 @@
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\packages\Community.NServiceBus.2.5.0.1446\.net 4.0\binaries\containers\unity\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\packages\Community.NServiceBus.2.5.0.1446\.net 4.0\binaries\NServiceBus.dll</HintPath>
     </Reference>
